@@ -1,0 +1,38 @@
+头哥第一题：
+def check(s, w):
+    if w in s:
+        return w + ",YES"
+    else:
+        return w + ",NO"
+s = str(input())
+w =str(input())
+result = check(s, w)
+print(result)
+头哥第二题：
+def DAYING(letter):
+        n = ord(letter) - ord('A') + 1
+        pyramid = ""
+        for i in range(n):
+            spaces = " " * (n - i - 1)
+            left = "".join(chr(ord('A') + j) for j in range(i+1))
+            row = spaces + left  + left[:-1][::-1]
+            pyramid += row + "\n"
+        return pyramid
+print(DAYING(input()), end="")
+头哥第三题：
+def 加密(t1, shift):
+    text = ""
+    for char in t1:
+        if char.isalpha():
+            if char.islower():
+                enchar = chr((ord(char) - ord('a') + shift) % 26 + ord('a'))
+            else:
+                enchar = chr((ord(char) - ord('A') + shift) % 26 + ord('A'))
+            text += enchar
+        else:
+            text += char
+    return text
+t1 = input()
+shift = 3
+t = 加密(t1, shift)
+print(t)
